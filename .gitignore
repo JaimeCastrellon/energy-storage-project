@@ -1,0 +1,33 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# --- C++ build artifacts ---
+build/
+*.o
+*.obj
+*.exe
+*.out
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# --- Data (raw/processed data can be large; don't commit it) ---
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# --- Results (regenerable outputs) ---
+results/*
+!results/.gitkeep
+
+# --- OS/editor junk ---
+.DS_Store
+.vscode/
+.idea/
