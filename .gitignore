@@ -7,7 +7,7 @@ venv/
 .ipynb_checkpoints/
 .pytest_cache/
 
-# --- C++ build artifacts ---
+# --- C++ ---
 build/
 *.o
 *.obj
@@ -17,17 +17,17 @@ CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 
-# --- Data (raw/processed data can be large; don't commit it) ---
+# --- Data ---
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# --- Results (regenerable outputs) ---
+# --- Results ---
 results/*
 !results/.gitkeep
 
-# --- OS/editor junk ---
+# --- junk ---
 .DS_Store
 .vscode/
 .idea/
