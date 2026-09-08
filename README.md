@@ -1,6 +1,6 @@
 # Energy Storage Valuation & RL Dispatch
 
-**Status:** 🚧 Early build — Phase 1 (data pipeline) in progress.
+**Status:** Early build — Phase 1 (data pipeline) in progress.
 
 ## What this project does
 
