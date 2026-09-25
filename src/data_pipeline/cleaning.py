@@ -14,16 +14,14 @@ def clean_pjm_lmp_data(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-file_name = input("Enter the CSV file name: ")
+if __name__ == "__main__":
+    file_name = input("Enter the CSV file name: ")
+    df = pd.read_csv(file_name)
+    df = clean_pjm_lmp_data(df)
+    print(df.head())
 
-df = pd.read_csv(file_name)
-
-df = clean_pjm_lmp_data(df)
-
-print(df.head())
-
-print(df.shape)
-print(df.index.dtype)
-print(df.index.name)
-print(df.loc["2025-11-02 05:00:00"])
-print(df.loc["2025-11-02 06:00:00"])
+    print(df.shape)
+    print(df.index.dtype)
+    print(df.index.name)
+    print(df.loc["2025-11-02 05:00:00"])
+    print(df.loc["2025-11-02 06:00:00"])
