@@ -1,6 +1,6 @@
 import pandas as pd
 
-EXPECTED_EMPTY_HUB_COLUMNS = ["voltage", "equipmennt", "zone"]
+EXPECTED_EMPTY_HUB_COLUMNS = ["voltage", "equipment", "zone"]
 
 def clean_pjm_lmp_data(df: pd.DataFrame) -> pd.DataFrame:
 
