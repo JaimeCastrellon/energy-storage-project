@@ -4,6 +4,8 @@ EXPECTED_EMPTY_HUB_COLUMNS = ["voltage", "equipment", "zone"]
 
 def clean_pjm_lmp_data(df: pd.DataFrame) -> pd.DataFrame:
 
+    df = df.copy()
+
     df["datetime_beginning_utc"] = pd.to_datetime(
         df["datetime_beginning_utc"], format="%m/%d/%Y %I:%M:%S %p"
     )
