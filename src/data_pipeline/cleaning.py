@@ -7,7 +7,7 @@ def clean_pjm_lmp_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
     df["datetime_beginning_utc"] = pd.to_datetime(
-        df["datetime_beginning_utc"], format="%m/%d/%Y %I:%M:%S %p"
+        df["datetime_beginning_utc"], format="%m/%d/%Y %I:%M:%S %p", utc=True
     )
 
     df = df.sort_values("datetime_beginning_utc")
