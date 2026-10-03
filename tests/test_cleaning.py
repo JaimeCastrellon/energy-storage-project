@@ -31,3 +31,17 @@ def test_empty_hub_columns_dropped_but_populated_kept():
     assert "equipment" not in cleaned.columns
     assert "datetime_beginning_ept" not in cleaned.columns
     assert "zone" in cleaned.columns
+
+
+def test_input_dataframe_not_mutated():
+
+    raw = pd.DataFrame({
+        "datetime_beginning_utc": ["11/2/2025 6:00:00 AM", "11/2/2025 5:00:00 AM"],
+        "datetime_beginning_ept": ["11/2/2025 1:00:00 AM", "11/2/2025 1:00:00 AM"],
+        "total_lmp_da": [39.914945, 44.15],
+    })
+    original = raw.copy()
+
+    clean_pjm_lmp_data(raw)
+
+    pd.testing.assert_frame_equal(raw, original)
