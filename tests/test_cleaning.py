@@ -45,3 +45,17 @@ def test_input_dataframe_not_mutated():
     clean_pjm_lmp_data(raw)
 
     pd.testing.assert_frame_equal(raw, original)
+
+
+def test_index_is_sorted_utc():
+
+    raw = pd.DataFrame({
+        "datetime_beginning_utc": ["11/2/2025 6:00:00 AM", "11/2/2025 5:00:00 AM"],
+        "total_lmp_da": [39.914945, 44.15],
+    })
+
+    cleaned = clean_pjm_lmp_data(raw)
+
+    assert str(cleaned.index.tz) == "UTC"
+    assert cleaned.index.is_monotonic_increasing
+    assert cleaned["total_lmp_da"].tolist() == [44.15, 39.914945]
