@@ -1,4 +1,5 @@
 import pandas as pd
+import pytest
 from src.data_pipeline.cleaning import clean_pjm_lmp_data
 
 def test_dst_fallback_hour_not_lost():
@@ -59,3 +60,16 @@ def test_index_is_sorted_utc():
     assert str(cleaned.index.tz) == "UTC"
     assert cleaned.index.is_monotonic_increasing
     assert cleaned["total_lmp_da"].tolist() == [44.15, 39.914945]
+
+
+def test_duplicate_utc_rows_dropped_with_warning():
+
+    raw = pd.DataFrame({
+        "datetime_beginning_utc": ["11/2/2025 5:00:00 AM", "11/2/2025 5:00:00 AM"],
+        "total_lmp_da": [44.15, 44.15],
+    })
+
+    with pytest.warns(UserWarning, match="duplicate"):
+        cleaned = clean_pjm_lmp_data(raw)
+
+    assert len(cleaned) == 1
