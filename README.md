@@ -37,7 +37,7 @@ results/             generated plots and comparison tables
 ## Setup
 
 ```bash
-python -m venv .venv           # Mac: pythong3 -m venv .venv
+python -m venv .venv           # Mac: python3 -m venv .venv
 source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
